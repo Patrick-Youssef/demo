@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_template_customizeme" model="ir.ui.view">
+        <field name="name">product.template.customizeme.form</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <xpath expr="//page[1]" position="after">
+                <page name='customizeme' string="CustomizeMe">
+                    <group>
+                        <field name="customizeme_product_url" placeholder='https://' />
+                        <field name="customizeme_product_custom_inject_to" />
+                    </group>
+                    <field name="customizeme_attribute_line_ids" groups="product.group_product_variant">
+                        <tree string="Variants" editable="bottom" create="false" delete="false">
+                            <field name="attribute_id" attrs="{'readonly': True}" />
+                            <field name="customizeme_attribute_part_name" placeholder='Responding 3D model part name (you can ignore it for type "Set suggestion")' />
+                            <field name="customizeme_attribute_type" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

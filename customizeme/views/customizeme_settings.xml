@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+      <field name="name">res.config.settings.view.form.inherit.customizeme</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="base.res_config_settings_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('settings')]" position="inside">
+          <div class="app_settings_block" data-string="CustomizeMe" string="CustomizeMe" data-key="customizeme" groups="website.group_website_designer">
+            <h2>CustomizeMe</h2>
+            <div style='padding:12px;'>
+              <group>
+                <field name='customizeme_access_key' />
+                <field name='customizeme_inject_to' />
+              </group>
+
+              <div style='display:flex; gap:8px; flex-direction:column; align-items:center'>
+                <div style='max-width:600px'>
+                  <b style='text-align:center; display:block; font-size:22px'>After Installation</b>
+                  <ol>
+                    <li>
+                      Log in to
+                      <a target='__blank' href='https://portal.customizeme.app'>portal.customizeme.app</a>
+                      .
+                    </li>
+                    <li>Go to the “Integration” tab.</li>
+                    <li>Create an access key for your store by clicking “New key” in the right corner.</li>
+                    <li>Enter the access key in Odoo CustomizeMe Settings.</li>
+                    <li>You can specify the pseudo selector of the element where the CustomizeMe has to be injected (optional).</li>
+                    <li>Save.</li>
+                  </ol>
+                </div>
+
+                <div style='max-width:600px'>
+                  <b style='text-align:center; display:block; font-size:22px'>Product configuration</b>
+                  <ol>
+                    <li>
+                      Create a product in
+                      <a target='__blank' href='https://portal.customizeme.app'>CustomizeMe Configurator.</a>
+                    </li>
+                    <li>
+                    In Odoo go to: Settings > Sales select 'Variants' and go to 'Attributes'.
+                  </li>
+                    <li>
+                      Create attributes for your product. Each attribute corresponds to one part (or suggestion). Values of the attribute must have the same names as their counterparts in CustomizeMe.
+                      <br />
+                      Example: If an attribute is responsible for setting material for the part, its values are the names of the materials. The 'Display type' for the attribute must be set as 'Select'.
+                    </li>
+                    <li>
+                      Go to Odoo and create a product.
+                  </li>
+                    <li>
+                      Go to: 'Variants' and set the attributes and their values for the product.
+                  </li>
+                    <li>
+                      Go to: CustomizeMe.
+                  </li>
+                    <li>
+                      Paste a link to the product.
+                  </li>
+                    <li>
+                      Match attributes with parts set in CustomizeMe. In 'Part name' enter the name of the part corresponding to the attribute. In 'Reaction type', select one of the 3 following options:
+                      <br />
+                      - Set material for the part - the attribute changes the material on the part,
+                      <br />
+                      - Set optional part to part - the attribute changes the optional part for the part,
+                      <br />
+                      - Set suggestion - the attribute sets customization suggestion.
+                    </li>
+                    <li>
+                      Save.
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
